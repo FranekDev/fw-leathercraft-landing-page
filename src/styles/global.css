@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import "tailwindcss";
+
+:root{
+  --bg: #F5E5A3;           /* subtle warm light */
+  --fg: #111;              /* ink */
+  --muted: #6b6b6b;        /* secondary text */
+  --accent: #111;          /* keep monochrome */
+  --border: #1e1e1e;       /* button/frame */
+  --radius: 0px;           /* ← set to 10px for rounded */
+  
+}

@@ -1,0 +1,7 @@
+---
+const { title, description, className } = Astro.props;
+---
+<article class={`${className} border p-4 rounded-none`} >
+    <h3 class="mt-1 mb-1 text-lg font-(--font-main)">{title}</h3>
+    <p class="m-0 text-muted text-sm">{description}</p>
+</article>

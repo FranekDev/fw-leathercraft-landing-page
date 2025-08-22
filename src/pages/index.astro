@@ -1,0 +1,89 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import Product from "../components/Product.astro";
+import Layout from "../layouts/Layout.astro";
+import Logo from "../../public/logo.svg";
+import { Font } from "astro:assets";
+
+const products = await getCollection("products");
+const sites = await getCollection("sites");
+const site = sites[0].data;
+---
+
+
+<Layout title={site.title} description={site.description} url={site.url}>
+  <!-- Announcement Banner -->
+  <div
+    class="bg-orange-300 text-center py-2.5 px-2.5 m-0 font-karla"
+  >
+    {site.announcementMessage}
+  </div>
+
+  <main class="max-w-prose mx-auto bg-amber-300 w-full h-full my-auto">
+    <!-- Header -->
+    <header
+      class="flex items-center justify-between gap-4 py-3 w-full max-w-prose"
+    >
+      
+		 <Logo class={"w-16"} fill={"#373F2D"} />
+      <div
+        class="flex items-center gap-3 no-underline text-inherit font-(--font-main) tracking-wide"
+      >
+        {site.brandName}
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-8 w-full">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl leading-tight mb-3 font-main">
+        {site.heroTitle}
+      </h2>
+      {
+        site.heroDescription.map((paragraph: string) => (
+          <p class="max-w-prose w-full mb-1 mt-1 text-muted">
+            {paragraph}
+          </p>
+        ))
+      }
+    </section>
+
+    <!-- Products Section -->
+    <section aria-label="Offer boxes">
+      <div class="grid grid-cols-6 gap-3 w-full font-karla">
+        {
+          products.sort((a, b) => (a.data.order || 0) - (b.data.order || 0)).map((product: any) => (
+            <Product
+              title={product.data.title}
+              description={product.data.description}
+              className={product.data.className}
+            />
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Social Links Section -->
+    <section aria-label="Socials">
+      <div class="section-title font-main pt-4">Socials:</div>
+      <div class="flex gap-2 flex-wrap" role="group">
+        {
+          Array.from(Object.keys(site.socials)).map((social) => (
+            <a
+              class="appearance-none bg-transparent text-fg border py-2.5 px-3.5 rounded-none no-underline inline-flex items-center gap-2 text-sm leading-none font-secondary hover:-translate-y-0.5 transition-transform"
+              href={site.socials[social as keyof typeof site.socials]}
+              target="_blank"
+              rel="noopener"
+            >
+              {social}
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-muted text-sm">
+      <div>© {new Date().getFullYear()} FW Leathercraft</div>
+    </footer>
+  </main>
+</Layout>
