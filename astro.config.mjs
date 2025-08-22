@@ -1,6 +1,7 @@
 // @ts-check
 import tailwindcss from '@tailwindcss/vite';
 import { fontProviders, defineConfig } from 'astro/config';
+import vercel from '@astrojs/vercel';
 
 
 // https://astro.build/config
@@ -21,5 +22,6 @@ export default defineConfig({
             provider: fontProviders.google()
         },
     ]
-  }
+  },
+  adapter: vercel(),
 });
