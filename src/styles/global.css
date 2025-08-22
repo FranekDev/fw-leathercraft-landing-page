@@ -3,6 +3,7 @@
 
 :root{
   --bg: #F5E5A3;           /* subtle warm light */
+  --secondary: #373F2D;
   --fg: #111;              /* ink */
   --muted: #6b6b6b;        /* secondary text */
   --accent: #111;          /* keep monochrome */
