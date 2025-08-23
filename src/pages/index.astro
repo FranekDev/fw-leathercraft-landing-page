@@ -29,7 +29,7 @@ const site = sites[0].data;
       <header class="flex items-center gap-4 w-full max-w-prose">
         <Logo class={"w-16"} fill={"#F5E5A3"} />
         <div
-          class="text-3xl"
+          class="text-3xl font-semibold"
         >
           {site.brandName}
         </div>
@@ -38,7 +38,7 @@ const site = sites[0].data;
       <!-- Hero Section -->
       <section class="pt-8 w-full">
         <h2
-          class="text-3xl md:text-4xl lg:text-5xl leading-tight mb-3 font-main"
+          class="text-3xl md:text-4xl lg:text-5xl leading-tight mb-3 font-main font-semibold"
         >
           {site.heroTitle}
         </h2>
@@ -68,7 +68,7 @@ const site = sites[0].data;
 
       <!-- Social Links Section -->
       <section aria-label="Socials">
-        <div class="section-title font-main">Socials:</div>
+        <div class="section-title font-semibold">Socials:</div>
         <div class="flex gap-2 flex-wrap" role="group">
           {
             Array.from(Object.keys(site.socials)).map((social) => (
