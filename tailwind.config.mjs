@@ -11,10 +11,11 @@ export default {
         'border': '#1e1e1e',
       },
       fontFamily: {
-        'main': ['Lora', 'serif'],
-        'secondary': ['Karla', 'sans-serif'],
-        'sans': ['Karla', 'sans-serif'],
-        'serif': ['Lora', 'serif'],
+        // Use Astro font CSS variables
+        'main': ['var(--font-lora)', 'serif'],
+        'secondary': ['var(--font-karla)', 'sans-serif'],
+        'sans': ['var(--font-karla)', 'sans-serif'],
+        'serif': ['var(--font-lora)', 'serif'],
       },
       maxWidth: {
         'container': '1024px',

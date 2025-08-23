@@ -7,7 +7,7 @@ heroDescription:
   - "Made in Poland."
 announcementMessage: "webstore coming soon!"
 brandName: "FW Leathercraft"
-url: "https://fw-leathercraft.example"
+url: "https://fwleathercraft.com"
 socials:
   Instagram: "https://instagram.com/fw_leathercraft"
   TikTok: "https://tiktok.com/@fw_leathercraft"
@@ -15,3 +15,6 @@ socials:
 ---
 
 This file can contain additional content that would be rendered as markdown if needed.
+
+
+<!-- zobaczyc jak dac inkonke jak sie udostepnai link -->

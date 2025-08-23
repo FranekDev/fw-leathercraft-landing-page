@@ -24,4 +24,8 @@ export default defineConfig({
     ]
   },
   adapter: vercel(),
+  // Enable font preloading for better performance
+  prefetch: {
+    prefetchAll: true
+  }
 });
