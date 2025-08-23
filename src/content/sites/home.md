@@ -1,5 +1,5 @@
 ---
-title: "FW Leathercraft — handmade leather goods"
+title: "FW Leathercraft — Handcrafted leather goods"
 description: "Minimalistic, hand-stitched wallets, belts & watch straps, and pocket organizers. Full-grain leather. Made in Poland."
 heroTitle: "Born from passion to create."
 heroDescription: 

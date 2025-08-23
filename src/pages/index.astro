@@ -13,7 +13,7 @@ const site = sites[0].data;
 <Layout title={site.title} description={site.description} url={site.url}>
   <!-- Announcement Banner with animations -->
   <div
-    class="text-center py-2.5 px-2.5 m-0 font-(--font-lora) announcement-banner overflow-hidden relative"
+    class="text-center py-2.5 px-2.5 m-0 font-(--font-lora) announcement-banner overflow-hidden relative selection:text-(--main) selection:bg-(--bg)/60"
   >
     <div class="announcement-text">
       {site.announcementMessage}
@@ -23,13 +23,13 @@ const site = sites[0].data;
   <!-- Main content container with vertical centering -->
   <div class="flex-1 flex items-center justify-center px-8">
     <main
-      class="max-w-prose text-(--main) w-full selection:text-(--bg) selection:bg-(--secondary)/60"
+      class="max-w-prose text-(--main) w-full selection:text-(--bg) selection:bg-(--main)/60"
     >
       <!-- Header -->
-      <header class="flex items-center gap-4 py-3 w-full max-w-prose">
+      <header class="flex items-center gap-4 w-full max-w-prose">
         <Logo class={"w-16"} fill={"#F5E5A3"} />
         <div
-          class="flex items-center gap-3 no-underline text-inherit font-main tracking-wide text-3xl"
+          class="text-3xl"
         >
           {site.brandName}
         </div>
