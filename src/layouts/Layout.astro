@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import { Font } from "astro:assets";
+
 export interface Props {
   title: string;
   description: string;
@@ -39,9 +41,12 @@ const {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="https://fwleathercraft.com/iconV2.png"/>
 
+    <Font cssVariable="--font-lora" />
+    <Font cssVariable="--font-karla" />
+
     <link rel="icon" href="/icon.png" type="image" />
   </head>
-  <body class="bg-(--bg) min-h-screen flex flex-col">
+  <body class="bg-(--bg) min-h-screen flex flex-col font-karla">
     <slot />
   </body>
 </html>

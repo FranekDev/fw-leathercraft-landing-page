@@ -3,7 +3,6 @@ import { getCollection, getEntry } from "astro:content";
 import Product from "../components/Product.astro";
 import Layout from "../layouts/Layout.astro";
 import Logo from "../../public/logo.svg";
-import { Font } from "astro:assets";
 
 const products = await getCollection("products");
 const sites = await getCollection("sites");
@@ -13,7 +12,7 @@ const site = sites[0].data;
 <Layout title={site.title} description={site.description} url={site.url}>
   <!-- Announcement Banner with animations -->
   <div
-    class="text-center py-2.5 px-2.5 m-0 font-(--font-lora) announcement-banner overflow-hidden relative selection:text-(--main) selection:bg-(--bg)/60"
+    class="text-center py-2.5 px-2.5 m-0 font-karla bg-(--main) overflow-hidden relative selection:text-(--main) selection:bg-(--bg)/60"
   >
     <div class="announcement-text">
       {site.announcementMessage}
@@ -27,10 +26,8 @@ const site = sites[0].data;
     >
       <!-- Header -->
       <header class="flex items-center gap-4 w-full max-w-prose">
-        <Logo class={"w-16"} fill={"#F5E5A3"} />
-        <div
-          class="text-3xl font-semibold"
-        >
+        <Logo class={"w-16"} fill={"#F8E790"} />
+        <div class="text-3xl font-lor">
           {site.brandName}
         </div>
       </header>
@@ -38,7 +35,7 @@ const site = sites[0].data;
       <!-- Hero Section -->
       <section class="pt-8 w-full">
         <h2
-          class="text-3xl md:text-4xl lg:text-5xl leading-tight mb-3 font-main font-semibold"
+          class="text-3xl md:text-4xl lg:text-5xl leading-tight mb-3"
         >
           {site.heroTitle}
         </h2>
@@ -51,7 +48,7 @@ const site = sites[0].data;
 
       <!-- Products Section -->
       <section aria-label="Offer boxes" class="py-4">
-        <div class="grid grid-cols-6 gap-3 w-full font-karla">
+        <div class="grid grid-cols-6 gap-3 w-full">
           {
             products
               .sort((a, b) => (a.data.order || 0) - (b.data.order || 0))
@@ -68,7 +65,7 @@ const site = sites[0].data;
 
       <!-- Social Links Section -->
       <section aria-label="Socials">
-        <div class="section-title font-semibold">Socials:</div>
+        <div class="section-title">Socials:</div>
         <div class="flex gap-2 flex-wrap" role="group">
           {
             Array.from(Object.keys(site.socials)).map((social) => (

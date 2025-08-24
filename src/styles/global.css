@@ -1,12 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap"); */
 @import "tailwindcss";
 
 :root {
   /* --bg: #F5E5A3;           */
   /* --secondary: #373F2D; */
 
-  --main: #f5e5a3; /* subtle warm light */
-  --bg: #373f2d;
+  --main: #F8E790; /* subtle warm light */
+  --bg: #2E3A2F;
   --fg: #111; /* ink */
   --muted: #6b6b6b; /* secondary text */
   --accent: #111; /* keep monochrome */
@@ -14,90 +14,14 @@
   --radius: 0px; /* ← set to 10px for rounded */
 }
 
-/* Announcement Banner - Minimal but appealing */
-.announcement-banner {
-  position: relative;
-  background: linear-gradient(
-    90deg,
-    #e6c068,
-    /* Soft golden */ #f0d084,
-    /* Light warm gold */ #e6c068 /* Back to soft golden */
-  );
-  background-size: 200% 100%;
-  animation: gentleShift 6s ease-in-out infinite;
-  color: #2f3b1e;
-  border-bottom: 1px solid rgba(47, 59, 30, 0.15);
+@theme inline {
+  --font-lora: var(--font-lora);
+  --font-karla: var(--font-karla);
+  --main: #F8E790;
+  --bg: #2E3A2F;
 }
 
-.announcement-text {
-  animation: softFadeIn 0.2s ease-out;
-  font-weight: 500;
-  letter-spacing: 0.3px;
-  color: #303030;
-}
 
-.announcement-banner::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.15),
-    transparent
-  );
-  animation: subtleShimmer 8s ease-in-out 3s infinite;
+.fl {
+  font-family: var(--font-lora);
 }
-
-/* Minimal keyframes */
-@keyframes gentleShift {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-@keyframes softFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes subtleShimmer {
-  0% {
-    left: -100%;
-  }
-  100% {
-    left: 100%;
-  }
-}
-
-/* Subtle hover effect */
-.announcement-banner:hover .announcement-text {
-  transform: scale(1.02);
-  transition: transform 0.2s ease;
-  color: #253318;
-}
-
-/* Temporary: Make font differences obvious */
-/* .font-main {
-  background: yellow !important;
-  padding: 2px !important;
-  font-family: "Lora", serif;
-}
-
-.font-secondary {
-  background: lightblue !important;
-  padding: 2px !important;
-} */

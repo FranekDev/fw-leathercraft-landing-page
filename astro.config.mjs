@@ -14,12 +14,12 @@ export default defineConfig({
         {
             name: "Lora",
             cssVariable: "--font-lora",
-            provider: fontProviders.google()
+            provider: fontProviders.fontsource()
         },
         {
             name: "Karla",
             cssVariable: "--font-karla",
-            provider: fontProviders.google()
+            provider: fontProviders.fontsource()
         },
     ]
   },
