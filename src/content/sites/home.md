@@ -1,6 +1,6 @@
 ---
-title: "FW Leathercraft — Handcrafted Leather Goods"
-description: "Hand-stitched leather wallets, belts, watch straps, and organizers. Made from Italian veg-tan leather in Poland."
+title: "FW Leathercraft — Handcrafted Leather Goods | Custom Wallets, Belts & Accessories"
+description: "Handcrafted leather wallets, belts, watch straps, and organizers made from Italian veg-tan leather in Poland. Custom orders available. Quality artisan leather goods."
 heroTitle: "Born from passion to create."
 heroDescription:
   - "I create leather accessories like wallets, belts, watch straps, and organizers. Each piece is handmade from Italian veg-tan leather, from the initial design to the final stitching."
