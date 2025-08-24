@@ -1,0 +1,58 @@
+---
+import { Font } from "astro:assets";
+
+export interface Props {
+  title: string;
+  description: string;
+  url: string;
+  image?: string;
+  icon?: string;
+  themeColor?: string;
+}
+
+const {
+  title,
+  description,
+  url,
+  image = "/iconV2.png",
+  icon = "/icon.png",
+  themeColor = "#2E3A2F",
+} = Astro.props;
+
+const fullImageUrl = new URL(image, url).toString();
+const fullIconUrl = new URL(icon, url).toString();
+---
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="generator" content={Astro.generator} />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={url} />
+  <meta name="theme-color" content={themeColor} />
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href={fullIconUrl} as="image" type="image/png" />
+  <link rel="dns-prefetch" href="https://ig.me" />
+  <link rel="dns-prefetch" href="https://instagram.com" />
+
+  <!-- OG/Twitter meta tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={url} />
+  <meta property="og:image" content={fullImageUrl} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={fullImageUrl} />
+
+  <Font cssVariable="--font-lora" />
+  <Font cssVariable="--font-karla" />
+
+  <link rel="icon" href={icon} type="image" />
+</head>

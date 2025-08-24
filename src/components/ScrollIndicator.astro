@@ -1,0 +1,58 @@
+---
+interface Props {
+  scrollText: string;
+}
+
+const { scrollText } = Astro.props;
+---
+
+<div class="pt-4 pb-8 sm:pb-0 text-center">
+  <button
+    id="scroll-indicator-btn"
+    class="flex flex-col items-center space-y-2 animate-bounce hover:animate-pulse transition-all duration-200 cursor-pointer group mx-auto"
+    aria-label="Scroll to call-to-action section"
+  >
+    <span
+      class="text-sm text-(--main)/70 group-hover:text-(--main) font-light transition-colors"
+      >{scrollText}</span
+    >
+    <svg
+      class="w-5 h-5 text-(--main)/70 group-hover:text-(--main) transition-colors"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1.5"
+        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
+  </button>
+</div>
+
+<script>
+  function scrollToCTASection(): void {
+    const ctaSection = document.getElementById("cta-section");
+    if (ctaSection) {
+      ctaSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }
+
+  function initScrollIndicator(): void {
+    const scrollButton = document.getElementById("scroll-indicator-btn");
+    if (scrollButton) {
+      scrollButton.addEventListener("click", scrollToCTASection);
+    }
+  }
+
+  // Initialize when DOM is loaded
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initScrollIndicator);
+  } else {
+    initScrollIndicator();
+  }
+</script>

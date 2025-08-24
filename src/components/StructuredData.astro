@@ -1,0 +1,65 @@
+---
+export interface Props {
+  name: string;
+  description: string;
+  url: string;
+  logo?: string;
+  socials?: Record<string, string>;
+}
+
+const { name, description, url, logo, socials } = Astro.props;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": ["Organization", "LocalBusiness"],
+  name: name,
+  description: description,
+  url: url,
+  logo: logo ? new URL(logo, url).toString() : undefined,
+  sameAs: socials ? Object.values(socials) : undefined,
+  foundingLocation: {
+    "@type": "Place",
+    name: "Poland",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    availableLanguage: ["English", "Polish"],
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "PL",
+  },
+  makesOffer: {
+    "@type": "Offer",
+    itemOffered: [
+      {
+        "@type": "Product",
+        name: "Handcrafted Leather Wallets",
+        category: "Leather Goods",
+        material: "Italian Veg-Tan Leather",
+      },
+      {
+        "@type": "Product",
+        name: "Leather Belts",
+        category: "Leather Goods",
+        material: "Italian Veg-Tan Leather",
+      },
+      {
+        "@type": "Product",
+        name: "Watch Straps",
+        category: "Leather Goods",
+        material: "Italian Veg-Tan Leather",
+      },
+      {
+        "@type": "Product",
+        name: "Organizers",
+        category: "Leather Goods",
+        material: "Italian Veg-Tan Leather",
+      },
+    ],
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

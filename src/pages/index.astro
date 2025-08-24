@@ -1,91 +1,90 @@
 ---
-import { getCollection, getEntry } from "astro:content";
-import Product from "../components/Product.astro";
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-import Logo from "../../public/logo.svg";
+import StructuredData from "../components/StructuredData.astro";
+import AnnouncementBanner from "../components/AnnouncementBanner.astro";
+import Header from "../components/Header.astro";
+import HeroSection from "../components/HeroSection.astro";
+import ScrollIndicator from "../components/ScrollIndicator.astro";
+import CTASection from "../components/CTASection.astro";
+import ProductsSection from "../components/ProductsSection.astro";
+import SocialSection from "../components/SocialSection.astro";
+import Footer from "../components/Footer.astro";
 
 const products = await getCollection("products");
-const sites = await getCollection("sites");
-const site = sites[0].data;
+const [siteEntry] = await getCollection("sites");
+
+if (!siteEntry) {
+  throw new Error(
+    "No site configuration found. Please check your content/sites directory."
+  );
+}
+
+const site = siteEntry.data;
 ---
 
 <Layout title={site.title} description={site.description} url={site.url}>
-  <!-- Announcement Banner with animations -->
+  <AnnouncementBanner message={site.announcementMessage} />
+
+  <!-- Main content container -->
   <div
-    class="text-center py-2.5 px-2.5 m-0 font-karla bg-(--main) overflow-hidden relative selection:text-(--main) selection:bg-(--bg)/60"
+    class="min-h-screen bg-(--bg) text-(--main) selection:text-(--bg) selection:bg-(--main)/60"
   >
-    <div class="announcement-text">
-      {site.announcementMessage}
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <main class="space-y-16">
+        <Header
+          brandName={site.brandName}
+          headerButtonText={site.headerButtonText}
+          headerButtonUrl={site.headerButtonUrl}
+        />
+
+        <HeroSection
+          heroTitle={site.heroTitle}
+          heroDescription={site.heroDescription}
+          slotsAvailable={site.slotsAvailable}
+          slotsAvailableText={site.slotsAvailableText}
+          slotsUnavailableText={site.slotsUnavailableText}
+        />
+        <ScrollIndicator scrollText={site.scrollText} />
+
+        <CTASection
+          ctaTitle={site.ctaTitle}
+          ctaSubtitle={site.ctaSubtitle}
+          ctaDescription={site.ctaDescription}
+          ctaButtonPrimary={site.ctaButtonPrimary}
+          ctaButtonPrimaryUrl={site.ctaButtonPrimaryUrl}
+          ctaButtonSecondary={site.ctaButtonSecondary}
+          ctaButtonSecondaryUrl={site.ctaButtonSecondaryUrl}
+        />
+
+        <ProductsSection
+          productsTitle={site.productsTitle}
+          productsDescription={site.productsDescription}
+          products={products}
+        />
+
+        <section class="space-y-8 md:space-y-12 lg:space-y-16">
+          <SocialSection
+            socialTitle={site.socialTitle}
+            socialDescription={site.socialDescription}
+            socials={site.socials}
+          />
+
+          <Footer
+            copyrightText={site.copyrightText}
+            footerText={site.footerText}
+          />
+        </section>
+      </main>
     </div>
   </div>
 
-  <!-- Main content container with vertical centering -->
-  <div class="flex-1 flex items-center justify-center px-8">
-    <main
-      class="max-w-prose text-(--main) w-full selection:text-(--bg) selection:bg-(--main)/60"
-    >
-      <!-- Header -->
-      <header class="flex items-center gap-4 w-full max-w-prose">
-        <Logo class={"w-16"} fill={"#F8E790"} />
-        <div class="text-3xl font-lora">
-          {site.brandName}
-        </div>
-      </header>
-
-      <!-- Hero Section -->
-      <section class="pt-8 w-full">
-        <h2
-          class="text-2xl md:text-4xl leading-tight mb-3"
-        >
-          {site.heroTitle}
-        </h2>
-        {
-          site.heroDescription.map((paragraph: string) => (
-            <p class="w-prose text-justify text-pretty mb-1 mt-1 text-base">{paragraph}</p>
-          ))
-        }
-      </section>
-
-      <!-- Products Section -->
-      <section aria-label="Offer boxes" class="py-4">
-        <div class="grid grid-cols-6 gap-3 w-full">
-          {
-            products
-              .sort((a, b) => (a.data.order || 0) - (b.data.order || 0))
-              .map((product: any) => (
-                <Product
-                  title={product.data.title}
-                  description={product.data.description}
-                  className={product.data.className}
-                />
-              ))
-          }
-        </div>
-      </section>
-
-      <!-- Social Links Section -->
-      <section aria-label="Socials">
-        <div class="section-title">Socials:</div>
-        <div class="flex gap-2 flex-wrap" role="group">
-          {
-            Array.from(Object.keys(site.socials)).map((social) => (
-              <a
-                class="appearance-none bg-transparent text-fg border py-2.5 px-3.5 rounded-none no-underline inline-flex items-center gap-2 text-sm leading-none font-secondary hover:-translate-y-0.5 transition-transform"
-                href={site.socials[social as keyof typeof site.socials]}
-                target="_blank"
-                rel="noopener"
-              >
-                {social}
-              </a>
-            ))
-          }
-        </div>
-      </section>
-
-      <!-- Footer -->
-      <footer class="py-8 text-muted text-sm">
-        <div>© {new Date().getFullYear()} FW Leathercraft</div>
-      </footer>
-    </main>
-  </div>
+  <!-- Structured Data for SEO -->
+  <StructuredData
+    name={site.brandName}
+    description={site.description}
+    url={site.url}
+    logo="/logo.svg"
+    socials={Object.fromEntries(site.socials.map((s) => [s.name, s.url]))}
+  />
 </Layout>

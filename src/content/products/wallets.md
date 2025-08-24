@@ -1,6 +1,6 @@
 ---
 title: "Wallets"
-description: "Minimalistic, hand stitched, full‑grain leather."
+description: "Hand-stitched minimalist wallets from Italian veg-tan leather. Built to age beautifully and last generations."
 className: "col-span-3"
 order: 1
 ---

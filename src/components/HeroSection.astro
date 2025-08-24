@@ -1,0 +1,52 @@
+---
+interface Props {
+  heroTitle: string;
+  heroDescription: string[];
+  slotsAvailable: boolean;
+  slotsAvailableText: string;
+  slotsUnavailableText: string;
+}
+
+const {
+  heroTitle,
+  heroDescription,
+  slotsAvailable,
+  slotsAvailableText,
+  slotsUnavailableText,
+} = Astro.props;
+---
+
+<section class="relative">
+  <div class="max-w-5xl mx-auto text-center space-y-2 md:space-y-4">
+    <!-- Slots Status Badge -->
+    <div class="flex justify-center">
+      <span
+        class="text-sm lg:text-base text-(--main)/90 font-medium px-4 py-2 bg-(--main)/10 rounded-full border border-(--main)/20 flex items-center gap-2"
+      >
+        <div
+          class={`w-2 h-2 rounded-full ${
+            slotsAvailable ? "bg-green-500 animate-pulse" : "bg-red-500"
+          }`}
+        >
+        </div>
+        {slotsAvailable ? slotsAvailableText : slotsUnavailableText}
+      </span>
+    </div>
+    <div class="space-y-8 md:space-y-12">
+      <h2
+        class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-lora font-light text-(--main) tracking-tight leading-[0.85] md:leading-[0.8]"
+      >
+        {heroTitle}
+      </h2>
+      <div class="max-w-3xl mx-auto space-y-4 md:space-y-6">
+        {
+          heroDescription.map((paragraph: string) => (
+            <p class="text-lg md:text-xl lg:text-2xl text-(--main)/90 leading-relaxed font-light">
+              {paragraph}
+            </p>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

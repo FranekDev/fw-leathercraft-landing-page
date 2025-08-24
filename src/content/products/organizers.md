@@ -1,6 +1,6 @@
 ---
 title: "Organizers"
-description: "EDC, pocket organizers, clean up your pockets."
+description: "Premium pocket organizers for your everyday carry. Transform chaos into organized simplicity."
 className: "col-span-6"
 order: 3
 ---

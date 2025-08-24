@@ -1,20 +1,49 @@
 ---
-title: "FW Leathercraft — Handcrafted leather goods"
-description: "Minimalistic, hand-stitched wallets, belts & watch straps, and pocket organizers. Full-grain leather. Made in Poland."
+title: "FW Leathercraft — Handcrafted Leather Goods"
+description: "Hand-stitched leather wallets, belts, watch straps, and organizers. Made from Italian veg-tan leather in Poland."
 heroTitle: "Born from passion to create."
-heroDescription: 
-  - "I create minimalistic accessories, such as: wallets, belts, watch straps and pocket organizers. Made out of veg tan Italian leather. Each product is fully handcrafted – from design, through cutting and hand stitch, up to finishing edges."
+heroDescription:
+  - "I create leather accessories like wallets, belts, watch straps, and organizers. Each piece is handmade from Italian veg-tan leather, from the initial design to the final stitching."
   - "Made in Poland."
-announcementMessage: "webstore coming soon!"
+announcementMessage: "Webstore coming soon!"
 brandName: "FW Leathercraft"
 url: "https://fwleathercraft.com"
+# Header Section
+headerButtonText: "Let's Craft Together"
+headerButtonUrl: "https://ig.me/m/fw_leathercraft"
+# CTA Section
+ctaTitle: "Let's Create Something Together"
+ctaSubtitle: "Each piece is made to order, just for you."
+ctaDescription: "Message me with your ideas or choose from existing designs. We'll discuss leather type, colors, and any customizations."
+ctaButtonPrimary: "Let's Talk"
+ctaButtonPrimaryUrl: "https://ig.me/m/fw_leathercraft"
+ctaButtonSecondary: "See Examples"
+ctaButtonSecondaryUrl: "https://instagram.com/fw_leathercraft"
+# Products Section
+productsTitle: "Everyday Essentials"
+productsDescription: "Each piece combines traditional craftsmanship with modern minimalist design"
+# Social Section
+socialTitle: "Follow My Work"
+socialDescription: "See the making process and latest projects"
+# Slots Status
+slotsAvailable: true
+slotsAvailableText: "Slots Available"
+slotsUnavailableText: "Slots Full"
+# Scroll Indicator
+scrollText: "Scroll to explore"
+# Footer
+copyrightText: "FW Leathercraft"
+footerText: "Handcrafted with passion in Poland"
 socials:
-  Instagram: "https://instagram.com/fw_leathercraft"
-  TikTok: "https://tiktok.com/@fw_leathercraft"
-  YouTube: "https://youtube.com/@fw_leathercraft"
+  - name: "Instagram"
+    url: "https://instagram.com/fw_leathercraft"
+    icon: "instagram"
+  - name: "TikTok"
+    url: "https://tiktok.com/@fw_leathercraft"
+    icon: "tiktok"
+  - name: "YouTube"
+    url: "https://youtube.com/@fw_leathercraft"
+    icon: "youtube"
 ---
 
-This file can contain additional content that would be rendered as markdown if needed.
-
-
-<!-- zobaczyc jak dac inkonke jak sie udostepnai link -->
+This file contains all the text content for the website, making it easy to manage and update without touching the code.

@@ -1,6 +1,6 @@
 ---
 title: "Belts & straps"
-description: "For your pants and watches, classic design."
+description: "Timeless leather belts and watch straps. Handcrafted with precision stitching for everyday elegance."
 className: "col-span-3"
 order: 2
 ---
