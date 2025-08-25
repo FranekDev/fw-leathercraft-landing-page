@@ -76,11 +76,11 @@ const structuredData = {
   },
   specialty: "Handcrafted leather goods made from Italian veg-tan leather",
   paymentAccepted: "Custom orders through direct contact",
-  currenciesAccepted: "EUR, USD, PLN",
-  makesOffer: {
-    "@type": "Offer",
-    itemOffered: [
-      {
+  currenciesAccepted: "USD, EUR, PLN",
+  makesOffer: [
+    {
+      "@type": "Offer",
+      itemOffered: {
         "@type": "Product",
         name: "Leather Wallet",
         alternateName: [
@@ -95,7 +95,21 @@ const structuredData = {
         artform: "Hand-stitched",
         description: "Handcrafted minimalistic leather wallets",
       },
-      {
+      availability: "https://schema.org/InStock",
+      priceCurrency: "USD",
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        priceCurrency: "USD",
+        price: "Contact for quote",
+      },
+      seller: {
+        "@type": "Organization",
+        name: "FW Leathercraft",
+      },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: {
         "@type": "Product",
         name: "Card Holder",
         alternateName: [
@@ -109,7 +123,21 @@ const structuredData = {
         artform: "Hand-stitched",
         description: "Minimalist leather card holders",
       },
-      {
+      availability: "https://schema.org/InStock",
+      priceCurrency: "USD",
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        priceCurrency: "USD",
+        price: "Contact for quote",
+      },
+      seller: {
+        "@type": "Organization",
+        name: "FW Leathercraft",
+      },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: {
         "@type": "Product",
         name: "Leather Belt",
         alternateName: ["Handmade Belt", "Custom Leather Belt", "Artisan Belt"],
@@ -119,7 +147,21 @@ const structuredData = {
         artform: "Hand-stitched",
         description: "Custom handcrafted leather belts",
       },
-      {
+      availability: "https://schema.org/InStock",
+      priceCurrency: "USD",
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        priceCurrency: "USD",
+        price: "Contact for quote",
+      },
+      seller: {
+        "@type": "Organization",
+        name: "FW Leathercraft",
+      },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: {
         "@type": "Product",
         name: "Leather Watch Strap",
         alternateName: [
@@ -133,7 +175,21 @@ const structuredData = {
         artform: "Hand-stitched",
         description: "Premium leather watch straps",
       },
-      {
+      availability: "https://schema.org/InStock",
+      priceCurrency: "USD",
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        priceCurrency: "USD",
+        price: "Contact for quote",
+      },
+      seller: {
+        "@type": "Organization",
+        name: "FW Leathercraft",
+      },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: {
         "@type": "Product",
         name: "EDC Organizer",
         alternateName: [
@@ -148,8 +204,19 @@ const structuredData = {
         artform: "Hand-stitched",
         description: "Handcrafted EDC pocket organizers for everyday carry",
       },
-    ],
-  },
+      availability: "https://schema.org/InStock",
+      priceCurrency: "USD",
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        priceCurrency: "USD",
+        price: "Contact for quote",
+      },
+      seller: {
+        "@type": "Organization",
+        name: "FW Leathercraft",
+      },
+    },
+  ],
 };
 ---
 
