@@ -1,0 +1,63 @@
+---
+
+---
+
+<button
+  id="scroll-to-top"
+  class="fixed bottom-6 cursor-pointer right-6 w-12 h-12 bg-(--main) text-(--bg) border-2 border-(--main) transform translate-y-20 transition-all duration-200 z-50 hover:bg-(--bg) hover:text-(--main) hover:scale-105"
+  aria-label="Scroll to top"
+>
+  <svg
+    class="w-6 h-6 mx-auto"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+  </svg>
+</button>
+
+<script>
+  function initScrollToTop(): void {
+    const scrollButton = document.getElementById("scroll-to-top");
+    if (!scrollButton) return;
+
+    function toggleButtonVisibility(): void {
+      if (!scrollButton) return;
+
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const threshold = 300;
+
+      if (scrollTop > threshold) {
+        scrollButton.classList.remove("translate-y-20", "pointer-events-none");
+        scrollButton.classList.add("translate-y-0", "pointer-events-auto");
+      } else {
+        scrollButton.classList.remove("translate-y-0", "pointer-events-auto");
+        scrollButton.classList.add("translate-y-20", "pointer-events-none");
+      }
+    }
+
+    function scrollToTop(): void {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+
+    window.addEventListener("scroll", toggleButtonVisibility);
+    scrollButton.addEventListener("click", scrollToTop);
+
+    toggleButtonVisibility();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initScrollToTop);
+  } else {
+    initScrollToTop();
+  }
+</script>
