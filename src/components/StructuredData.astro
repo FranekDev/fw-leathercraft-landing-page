@@ -9,92 +9,99 @@ export interface Props {
 
 const { name, description, url, logo, socials } = Astro.props;
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": ["Organization", "LocalBusiness", "ArtisanBusiness"],
-  name: name,
-  alternateName: ["FW Leathercraft", "fw leathercraft", "fw_leathercraft"],
-  description: description,
-  url: url,
-  logo: logo ? new URL(logo, url).toString() : undefined,
-  sameAs: socials ? Object.values(socials) : undefined,
-  keywords: [
-    "leather wallet",
-    "leather belt",
-    "handmade wallet",
-    "card holder",
-    "minimalistic wallet",
-    "leather watch strap",
-    "edc organizer",
-    "edc pocket organizer",
-    "handcrafted leather goods",
-    "custom leather wallets",
-    "italian leather",
-    "veg tan leather",
-    "leather belts",
-    "watch straps",
-    "leather organizers",
-    "handmade in poland",
-    "artisan leather",
-    "bifold wallet",
-    "slim wallet",
-    "minimalist leather wallet",
-    "leather card case",
-    "leather accessories",
-    "custom leather goods",
-    "bespoke leather",
-    "handstitched leather",
-    "vegetable tanned leather",
-    "premium leather goods",
-    "leather craft",
-    "everyday carry organizer",
-    "pocket organizer",
-    "leather edc",
-    "handmade leather accessories",
-  ],
-  foundingLocation: {
-    "@type": "Place",
-    name: "Poland",
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": ["Organization", "LocalBusiness", "ArtisanBusiness"],
+    name: name,
+    alternateName: ["FW Leathercraft", "fw leathercraft", "fw_leathercraft"],
+    description: description,
+    url: url,
+    logo: logo ? new URL(logo, url).toString() : undefined,
+    sameAs: socials ? Object.values(socials) : undefined,
+    keywords: [
+      "leather wallet",
+      "leather belt",
+      "handmade wallet",
+      "card holder",
+      "minimalistic wallet",
+      "leather watch strap",
+      "edc organizer",
+      "edc pocket organizer",
+      "handcrafted leather goods",
+      "custom leather wallets",
+      "italian leather",
+      "veg tan leather",
+      "leather belts",
+      "watch straps",
+      "leather organizers",
+      "handmade in poland",
+      "artisan leather",
+      "bifold wallet",
+      "slim wallet",
+      "minimalist leather wallet",
+      "leather card case",
+      "leather accessories",
+      "custom leather goods",
+      "bespoke leather",
+      "handstitched leather",
+      "vegetable tanned leather",
+      "premium leather goods",
+      "leather craft",
+      "everyday carry organizer",
+      "pocket organizer",
+      "leather edc",
+      "handmade leather accessories",
+    ],
+    foundingLocation: {
+      "@type": "Place",
+      name: "Poland",
+    },
+    areaServed: {
+      "@type": "Place",
+      name: "Worldwide",
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      availableLanguage: ["English", "Polish"],
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "PL",
+    },
+    brand: {
+      "@type": "Brand",
+      name: "FW Leathercraft",
+      slogan: "Handcrafted with passion in Poland",
+    },
+    specialty: "Handcrafted leather goods made from Italian veg-tan leather",
+    paymentAccepted: "Custom orders through direct contact",
+    currenciesAccepted: "USD, EUR, PLN",
   },
-  areaServed: {
-    "@type": "Place",
-    name: "Worldwide",
-  },
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    availableLanguage: ["English", "Polish"],
-  },
-  address: {
-    "@type": "PostalAddress",
-    addressCountry: "PL",
-  },
-  brand: {
-    "@type": "Brand",
-    name: "FW Leathercraft",
-    slogan: "Handcrafted with passion in Poland",
-  },
-  specialty: "Handcrafted leather goods made from Italian veg-tan leather",
-  paymentAccepted: "Custom orders through direct contact",
-  currenciesAccepted: "USD, EUR, PLN",
-  makesOffer: [
-    {
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: "Leather Wallet",
+    alternateName: [
+      "Handmade Wallet",
+      "Minimalistic Wallet",
+      "Bifold Wallet",
+      "Slim Wallet",
+    ],
+    category: "Leather Goods",
+    material: "Italian Veg-Tan Leather",
+    brand: {
+      "@type": "Brand",
+      name: "FW Leathercraft",
+    },
+    manufacturer: {
+      "@type": "Organization",
+      name: "FW Leathercraft",
+    },
+    description: "Handcrafted minimalistic leather wallets",
+    offers: {
       "@type": "Offer",
-      itemOffered: {
-        "@type": "Product",
-        name: "Leather Wallet",
-        alternateName: [
-          "Handmade Wallet",
-          "Minimalistic Wallet",
-          "Bifold Wallet",
-          "Slim Wallet",
-        ],
-        category: "Leather Goods",
-        material: "Italian Veg-Tan Leather",
-        brand: "FW Leathercraft",
-        artform: "Hand-stitched",
-        description: "Handcrafted minimalistic leather wallets",
-      },
       availability: "https://schema.org/InStock",
       priceCurrency: "USD",
       priceSpecification: {
@@ -105,24 +112,32 @@ const structuredData = {
       seller: {
         "@type": "Organization",
         name: "FW Leathercraft",
+        url: url,
       },
     },
-    {
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: "Card Holder",
+    alternateName: [
+      "Leather Card Case",
+      "Minimalist Card Holder",
+      "Slim Card Wallet",
+    ],
+    category: "Leather Goods",
+    material: "Italian Veg-Tan Leather",
+    brand: {
+      "@type": "Brand",
+      name: "FW Leathercraft",
+    },
+    manufacturer: {
+      "@type": "Organization",
+      name: "FW Leathercraft",
+    },
+    description: "Minimalist leather card holders",
+    offers: {
       "@type": "Offer",
-      itemOffered: {
-        "@type": "Product",
-        name: "Card Holder",
-        alternateName: [
-          "Leather Card Case",
-          "Minimalist Card Holder",
-          "Slim Card Wallet",
-        ],
-        category: "Leather Goods",
-        material: "Italian Veg-Tan Leather",
-        brand: "FW Leathercraft",
-        artform: "Hand-stitched",
-        description: "Minimalist leather card holders",
-      },
       availability: "https://schema.org/InStock",
       priceCurrency: "USD",
       priceSpecification: {
@@ -133,20 +148,28 @@ const structuredData = {
       seller: {
         "@type": "Organization",
         name: "FW Leathercraft",
+        url: url,
       },
     },
-    {
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: "Leather Belt",
+    alternateName: ["Handmade Belt", "Custom Leather Belt", "Artisan Belt"],
+    category: "Leather Goods",
+    material: "Italian Veg-Tan Leather",
+    brand: {
+      "@type": "Brand",
+      name: "FW Leathercraft",
+    },
+    manufacturer: {
+      "@type": "Organization",
+      name: "FW Leathercraft",
+    },
+    description: "Custom handcrafted leather belts",
+    offers: {
       "@type": "Offer",
-      itemOffered: {
-        "@type": "Product",
-        name: "Leather Belt",
-        alternateName: ["Handmade Belt", "Custom Leather Belt", "Artisan Belt"],
-        category: "Leather Goods",
-        material: "Italian Veg-Tan Leather",
-        brand: "FW Leathercraft",
-        artform: "Hand-stitched",
-        description: "Custom handcrafted leather belts",
-      },
       availability: "https://schema.org/InStock",
       priceCurrency: "USD",
       priceSpecification: {
@@ -157,24 +180,28 @@ const structuredData = {
       seller: {
         "@type": "Organization",
         name: "FW Leathercraft",
+        url: url,
       },
     },
-    {
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: "Leather Watch Strap",
+    alternateName: ["Watch Band", "Custom Watch Strap", "Handmade Watch Strap"],
+    category: "Leather Goods",
+    material: "Italian Veg-Tan Leather",
+    brand: {
+      "@type": "Brand",
+      name: "FW Leathercraft",
+    },
+    manufacturer: {
+      "@type": "Organization",
+      name: "FW Leathercraft",
+    },
+    description: "Premium leather watch straps",
+    offers: {
       "@type": "Offer",
-      itemOffered: {
-        "@type": "Product",
-        name: "Leather Watch Strap",
-        alternateName: [
-          "Watch Band",
-          "Custom Watch Strap",
-          "Handmade Watch Strap",
-        ],
-        category: "Leather Goods",
-        material: "Italian Veg-Tan Leather",
-        brand: "FW Leathercraft",
-        artform: "Hand-stitched",
-        description: "Premium leather watch straps",
-      },
       availability: "https://schema.org/InStock",
       priceCurrency: "USD",
       priceSpecification: {
@@ -185,25 +212,33 @@ const structuredData = {
       seller: {
         "@type": "Organization",
         name: "FW Leathercraft",
+        url: url,
       },
     },
-    {
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: "EDC Organizer",
+    alternateName: [
+      "EDC Pocket Organizer",
+      "Everyday Carry Organizer",
+      "Leather EDC",
+      "Pocket Organizer",
+    ],
+    category: "Leather Goods",
+    material: "Italian Veg-Tan Leather",
+    brand: {
+      "@type": "Brand",
+      name: "FW Leathercraft",
+    },
+    manufacturer: {
+      "@type": "Organization",
+      name: "FW Leathercraft",
+    },
+    description: "Handcrafted EDC pocket organizers for everyday carry",
+    offers: {
       "@type": "Offer",
-      itemOffered: {
-        "@type": "Product",
-        name: "EDC Organizer",
-        alternateName: [
-          "EDC Pocket Organizer",
-          "Everyday Carry Organizer",
-          "Leather EDC",
-          "Pocket Organizer",
-        ],
-        category: "Leather Goods",
-        material: "Italian Veg-Tan Leather",
-        brand: "FW Leathercraft",
-        artform: "Hand-stitched",
-        description: "Handcrafted EDC pocket organizers for everyday carry",
-      },
       availability: "https://schema.org/InStock",
       priceCurrency: "USD",
       priceSpecification: {
@@ -214,10 +249,15 @@ const structuredData = {
       seller: {
         "@type": "Organization",
         name: "FW Leathercraft",
+        url: url,
       },
     },
-  ],
-};
+  },
+];
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+{
+  structuredData.map((data) => (
+    <script type="application/ld+json" set:html={JSON.stringify(data)} />
+  ))
+}
