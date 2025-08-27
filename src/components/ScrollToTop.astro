@@ -31,7 +31,7 @@
       if (!scrollButton) return;
 
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const threshold = 300;
+      const threshold = 100;
 
       if (scrollTop > threshold) {
         scrollButton.classList.remove("translate-y-20", "pointer-events-none");

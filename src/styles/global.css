@@ -2,11 +2,8 @@
 @import "tailwindcss";
 
 :root {
-  /* --bg: #F5E5A3;           */
-  /* --secondary: #373F2D; */
-
-  --main: #F8E790; /* subtle warm light */
-  --bg: #2E3A2F;
+  --main: #f8e790; /* subtle warm light */
+  --bg: #2e3a2f;
   --fg: #111; /* ink */
   --muted: #6b6b6b; /* secondary text */
   --accent: #111; /* keep monochrome */
@@ -17,6 +14,23 @@
 @theme inline {
   --font-lora: var(--font-lora);
   --font-karla: var(--font-karla);
-  --main: #F8E790;
-  --bg: #2E3A2F;
+  --main: #f8e790;
+  --bg: #2e3a2f;
+}
+
+/* Global animation and accessibility styles */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
