@@ -7,8 +7,14 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
     <url>
         <loc>https://fwleathercraft.com/</loc>
-        <lastmod>2025-08-24</lastmod>
+        <lastmod>2025-09-01</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://fwleathercraft.com/404</loc>
+        <lastmod>2025-09-01</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.1</priority>
     </url>
 </urlset>

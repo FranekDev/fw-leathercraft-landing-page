@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /_astro/
+Disallow: /api/
+
+# Specific crawl instructions
+Crawl-delay: 1
 
 Sitemap: https://fwleathercraft.com/sitemap.xml
