@@ -2,8 +2,8 @@
 @import "tailwindcss";
 
 :root {
-  --main: #f8e790; /* subtle warm light */
-  --bg: #2e3a2f;
+  --main: #EFE3A4; /* subtle warm light */
+  --bg: #242E28;
   --fg: #111; /* ink */
   --muted: #6b6b6b; /* secondary text */
   --accent: #111; /* keep monochrome */

@@ -1,5 +1,5 @@
 ---
-title: "FW Leathercraft — Handcrafted Leather Goods | Custom Wallets, Belts & Accessories"
+title: "FW Leathercraft — Handcrafted Leather Goods"
 description: "Handcrafted leather wallets, belts, watch straps, and organizers made from Italian veg-tan leather in Poland. Custom orders available. Quality artisan leather goods."
 heroTitle: "Born from passion to create."
 heroDescription:
@@ -44,6 +44,12 @@ socials:
   - name: "YouTube"
     url: "https://youtube.com/@fw_leathercraft"
     icon: "youtube"
+  - name: "Pinterest"
+    url: "https://pinterest.com/fw_leathercraft"
+    icon: "pinterest"
+  - name: "Facebook"
+    url: "https://www.facebook.com/profile.php?id=61579613703349"
+    icon: "facebook"
 ---
 
 This file contains all the text content for the website, making it easy to manage and update without touching the code.
