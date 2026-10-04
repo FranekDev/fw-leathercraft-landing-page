@@ -4,7 +4,7 @@
 
 <button
   id="scroll-to-top"
-  class="fixed bottom-6 cursor-pointer right-6 w-12 h-12 bg-(--main) text-(--bg) border-2 border-(--main) transform translate-y-20 transition-all duration-200 z-50 hover:bg-(--bg) hover:text-(--main) hover:scale-105"
+  class="fixed bottom-6 cursor-pointer right-6 w-12 h-12 bg-(--main) text-(--bg) border-2 border-(--main) translate-y-20 invisible transition-all duration-200 z-50 hover:bg-(--bg) hover:text-(--main) hover:scale-105"
   aria-label="Scroll to top"
 >
   <svg
@@ -34,11 +34,11 @@
       const threshold = 100;
 
       if (scrollTop > threshold) {
-        scrollButton.classList.remove("translate-y-20", "pointer-events-none");
-        scrollButton.classList.add("translate-y-0", "pointer-events-auto");
+        scrollButton.classList.remove("translate-y-20", "invisible");
+        scrollButton.classList.add("translate-y-0", "visible");
       } else {
-        scrollButton.classList.remove("translate-y-0", "pointer-events-auto");
-        scrollButton.classList.add("translate-y-20", "pointer-events-none");
+        scrollButton.classList.remove("translate-y-0", "visible");
+        scrollButton.classList.add("translate-y-20", "invisible");
       }
     }
 
@@ -49,7 +49,7 @@
       });
     }
 
-    window.addEventListener("scroll", toggleButtonVisibility);
+    window.addEventListener("scroll", toggleButtonVisibility, { passive: true });
     scrollButton.addEventListener("click", scrollToTop);
 
     toggleButtonVisibility();

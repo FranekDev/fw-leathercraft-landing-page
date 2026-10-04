@@ -20,7 +20,6 @@ const {
 } = Astro.props;
 
 const fullImageUrl = new URL(image, url).toString();
-const fullIconUrl = new URL(icon, url).toString();
 ---
 
 <head>
@@ -40,8 +39,6 @@ const fullIconUrl = new URL(icon, url).toString();
   <link rel="canonical" href={url} />
   <meta name="theme-color" content={themeColor} />
 
-  <!-- Preload critical resources -->
-  <link rel="preload" href={fullIconUrl} as="image" type="image/png" />
   <link rel="dns-prefetch" href="https://ig.me" />
   <link rel="dns-prefetch" href="https://instagram.com" />
 
@@ -59,8 +56,11 @@ const fullIconUrl = new URL(icon, url).toString();
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={fullImageUrl} />
 
-  <Font cssVariable="--font-lora" />
-  <Font cssVariable="--font-karla" />
+  <Font cssVariable="--font-lora" preload={[{ subset: "latin" }]} />
+  <Font cssVariable="--font-karla" preload={[{ subset: "latin" }]} />
 
-  <link rel="icon" href={icon} type="image" />
+  <!-- Lets CSS hide reveal-animated content only when JS can reveal it again -->
+  <script is:inline>document.documentElement.classList.add("js");</script>
+
+  <link rel="icon" href={icon} type="image/png" />
 </head>

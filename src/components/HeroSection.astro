@@ -27,12 +27,12 @@ const {
       <span
         class="text-sm lg:text-base text-(--main)/90 font-medium px-4 py-2 bg-(--main)/10 rounded-full border border-(--main)/20 flex items-center gap-2"
       >
-        <div
+        <span
           class={`w-2 h-2 rounded-full ${
             slotsAvailable ? "bg-green-500 animate-pulse" : "bg-red-500"
           }`}
         >
-        </div>
+        </span>
         {slotsAvailable ? slotsAvailableText : slotsUnavailableText}
       </span>
     </div>
@@ -60,28 +60,3 @@ const {
   </div>
 </section>
 
-<script>
-  function scrollToCTASection(): void {
-    const ctaSection = document.getElementById("cta-section");
-    if (ctaSection) {
-      ctaSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  }
-
-  function initScrollIndicator(): void {
-    const scrollButton = document.getElementById("scroll-indicator-btn");
-    if (scrollButton) {
-      scrollButton.addEventListener("click", scrollToCTASection);
-    }
-  }
-
-  // Initialize when DOM is loaded
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initScrollIndicator);
-  } else {
-    initScrollIndicator();
-  }
-</script>

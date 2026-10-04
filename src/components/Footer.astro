@@ -10,7 +10,7 @@ const { copyrightText, footerText } = Astro.props;
 <footer class="py-6 md:py-8 text-center border-t border-(--main)/20">
   <div class="space-y-4">
     <p class="text-(--main)/80 text-sm md:text-base">
-      © {new Date().getFullYear()}
+      © <span id="footer-year">{new Date().getFullYear()}</span>{" "}
       {copyrightText}
     </p>
     <p class="text-(--main)/60 text-xs md:text-sm">
@@ -18,3 +18,8 @@ const { copyrightText, footerText } = Astro.props;
     </p>
   </div>
 </footer>
+
+<script>
+  const year = document.getElementById("footer-year");
+  if (year) year.textContent = String(new Date().getFullYear());
+</script>

@@ -31,12 +31,10 @@ const site = siteEntry.data;
     class="min-h-screen bg-(--bg) text-(--main) selection:text-(--bg) selection:bg-(--main)/60"
   >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Hero Container - Full Viewport Height -->
-      <div class="relative overflow-hidden min-h-screen">
-        <!-- Header at top -->
-        <div
-          class="opacity-0 translate-y-6 transition-all duration-1000 ease-out delay-150 absolute top-0 left-0 right-0 z-10 animate-in transform-gpu"
-        >
+      <!-- Hero Container - Full Viewport Height; header in normal flow so
+           the hero content can never slide under it on short screens -->
+      <div class="flex flex-col min-h-svh">
+        <div class="reveal animate-in delay-75">
           <Header
             brandName={site.brandName}
             headerButtonText={site.headerButtonText}
@@ -45,10 +43,8 @@ const site = siteEntry.data;
         </div>
 
         <!-- Centered Hero Content with integrated scroll indicator -->
-        <div class="absolute inset-0 flex items-center justify-center px-4">
-          <div
-            class="opacity-0 translate-y-6 transition-all duration-1000 ease-out delay-300 w-full max-w-7xl animate-in transform-gpu"
-          >
+        <div class="flex-1 flex items-center justify-center px-4 py-8">
+          <div class="reveal animate-in delay-150 w-full max-w-7xl">
             <HeroSection
               heroTitle={site.heroTitle}
               heroDescription={site.heroDescription}
@@ -64,7 +60,7 @@ const site = siteEntry.data;
       <!-- Rest of the content -->
       <main class="space-y-4">
         <div
-          class="opacity-0 translate-y-6 transition-all duration-1000 ease-out scroll-reveal"
+          class="reveal scroll-reveal"
         >
           <CTASection
             ctaTitle={site.ctaTitle}
@@ -78,7 +74,7 @@ const site = siteEntry.data;
         </div>
 
         <div
-          class="opacity-0 translate-y-6 transition-all duration-1000 ease-out scroll-reveal"
+          class="reveal scroll-reveal"
         >
           <ProductsSection
             productsTitle={site.productsTitle}
@@ -89,7 +85,7 @@ const site = siteEntry.data;
 
         <section class="space-y-8 md:space-y-12 lg:space-y-16">
           <div
-            class="opacity-0 translate-y-6 transition-all duration-1000 ease-out scroll-reveal"
+            class="reveal scroll-reveal"
           >
             <SocialSection
               socialTitle={site.socialTitle}
@@ -99,7 +95,7 @@ const site = siteEntry.data;
           </div>
 
           <div
-            class="opacity-0 translate-y-6 transition-all duration-1000 ease-out scroll-reveal"
+            class="reveal reveal-fade scroll-reveal"
           >
             <Footer
               copyrightText={site.copyrightText}
@@ -124,38 +120,34 @@ const site = siteEntry.data;
 
   <!-- Animation Script -->
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // Trigger page load animations immediately
-      setTimeout(() => {
-        document.querySelectorAll(".animate-in").forEach((el) => {
-          el.classList.remove("opacity-0", "translate-y-6");
-          el.classList.add("opacity-100", "translate-y-0");
+    const reveal = (el: Element) => el.classList.add("is-visible");
+
+    // Page load animations (double rAF so the hidden state is painted first
+    // and the transition actually runs)
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => {
+        document.querySelectorAll(".animate-in").forEach(reveal);
+      })
+    );
+
+    // Scroll animations
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            reveal(entry.target);
+            observer.unobserve(entry.target);
+          }
         });
-      }, 100);
+      },
+      {
+        threshold: 0.05,
+        rootMargin: "50px 0px -10px 0px",
+      }
+    );
 
-      // Intersection Observer for scroll animations
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setTimeout(() => {
-                entry.target.classList.remove("opacity-0", "translate-y-6");
-                entry.target.classList.add("opacity-100", "translate-y-0");
-              }, 100);
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.05,
-          rootMargin: "50px 0px -10px 0px",
-        }
-      );
-
-      // Observe scroll-reveal elements
-      document.querySelectorAll(".scroll-reveal").forEach((el) => {
-        observer.observe(el);
-      });
+    document.querySelectorAll(".scroll-reveal").forEach((el) => {
+      observer.observe(el);
     });
   </script>
 </Layout>

@@ -23,6 +23,28 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Fade-in on load/scroll. Hidden only when JS is available to reveal it
+   (the "js" class is set in Head.astro), so content never stays invisible. */
+.js .reveal {
+  opacity: 0;
+  translate: 0 1.5rem;
+  transition-property: opacity, translate;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* Last element on the page: no slide. A translated box at the very bottom
+   extends the scrollable area, so when it settles the page shrinks and
+   everything visibly drops if the user is already scrolled to the end. */
+.js .reveal.reveal-fade {
+  translate: none;
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  translate: 0 0;
+}
+
 /* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *,

@@ -12,12 +12,6 @@ export const GET: APIRoute = async () => {
       lastmod: currentDate,
       changefreq: 'weekly',
       priority: '1.0'
-    },
-    {
-      url: `${baseUrl}/404`,
-      lastmod: currentDate,
-      changefreq: 'yearly',
-      priority: '0.1'
     }
   ];
 

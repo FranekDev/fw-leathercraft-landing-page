@@ -9,20 +9,24 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  experimental: {
-    fonts: [
-        {
-            name: "Lora",
-            cssVariable: "--font-lora",
-            provider: fontProviders.fontsource()
-        },
-        {
-            name: "Karla",
-            cssVariable: "--font-karla",
-            provider: fontProviders.fontsource()
-        },
-    ]
-  },
+  fonts: [
+    {
+      name: "Lora",
+      cssVariable: "--font-lora",
+      provider: fontProviders.fontsource(),
+      weights: ["400 700"],
+      styles: ["normal"],
+      subsets: ["latin", "latin-ext"],
+    },
+    {
+      name: "Karla",
+      cssVariable: "--font-karla",
+      provider: fontProviders.fontsource(),
+      weights: ["200 800"],
+      styles: ["normal"],
+      subsets: ["latin", "latin-ext"],
+    },
+  ],
   adapter: vercel(),
   // Enable font preloading for better performance
   prefetch: {
