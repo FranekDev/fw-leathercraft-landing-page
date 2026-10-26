@@ -15,7 +15,7 @@ const {
   description,
   url,
   image = "/iconV2.png",
-  icon = "/icon.png",
+  icon = "/icon-192.png",
   themeColor = "#2E3A2F",
 } = Astro.props;
 
@@ -62,5 +62,7 @@ const fullImageUrl = new URL(image, url).toString();
   <!-- Lets CSS hide reveal-animated content only when JS can reveal it again -->
   <script is:inline>document.documentElement.classList.add("js");</script>
 
-  <link rel="icon" href={icon} type="image/png" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" href={icon} type="image/png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 </head>
